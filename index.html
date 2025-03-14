@@ -59,3 +59,23 @@
 
 </body>
 </html>
+<script>
+    function checkPassword() {
+        var password = document.getElementById("password").value;
+        if (password === "01014437588") {
+            // حفظ تسجيل الدخول في localStorage حتى لا يحتاج المستخدم لإعادة تسجيل الدخول
+            localStorage.setItem("loggedIn", "true");
+            // توجيه المستخدم إلى الصفحة الصحيحة بعد تسجيل الدخول
+            window.location.href = "dashboard.html";
+        } else {
+            document.getElementById("error-message").style.display = "block";
+        }
+    }
+
+    // التحقق مما إذا كان المستخدم قد سجل الدخول مسبقًا
+    window.onload = function () {
+        if (localStorage.getItem("loggedIn") === "true") {
+            window.location.href = "dashboard.html";
+        }
+    };
+</script>
